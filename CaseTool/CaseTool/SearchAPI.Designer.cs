@@ -39,11 +39,12 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.queryValue = new System.Windows.Forms.TextBox();
-            this.queryResult = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
+            this.queryValue = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -143,8 +144,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.btn_search);
-            this.groupBox2.Controls.Add(this.queryResult);
             this.groupBox2.Controls.Add(this.queryValue);
             this.groupBox2.Location = new System.Drawing.Point(357, 12);
             this.groupBox2.Name = "groupBox2";
@@ -153,23 +154,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "search";
             // 
-            // queryValue
-            // 
-            this.queryValue.Location = new System.Drawing.Point(7, 35);
-            this.queryValue.Name = "queryValue";
-            this.queryValue.Size = new System.Drawing.Size(100, 20);
-            this.queryValue.TabIndex = 0;
-            // 
-            // queryResult
-            // 
-            this.queryResult.Location = new System.Drawing.Point(7, 75);
-            this.queryResult.Name = "queryResult";
-            this.queryResult.Size = new System.Drawing.Size(100, 20);
-            this.queryResult.TabIndex = 1;
-            // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(7, 125);
+            this.btn_search.Location = new System.Drawing.Point(65, 268);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(100, 23);
             this.btn_search.TabIndex = 2;
@@ -177,10 +164,29 @@
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // queryValue
+            // 
+            this.queryValue.Location = new System.Drawing.Point(7, 35);
+            this.queryValue.Name = "queryValue";
+            this.queryValue.Size = new System.Drawing.Size(100, 20);
+            this.queryValue.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 71);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(560, 150);
+            this.dataGridView1.TabIndex = 3;
+            // 
             // SearchAPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(942, 424);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -190,6 +196,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,7 +215,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.TextBox queryResult;
         private System.Windows.Forms.TextBox queryValue;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

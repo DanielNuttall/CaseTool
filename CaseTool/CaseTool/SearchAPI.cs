@@ -12,6 +12,8 @@ using System.IO;
 using System.Web;
 using System.Net;
 
+using Newtonsoft.Json;
+
 
 namespace CaseTool
 {
@@ -26,11 +28,6 @@ namespace CaseTool
             InitializeComponent();
             this.x = x;
             this.y = y;
-
-            //HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri("http://localhost:55268/");
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public string GetRequest(string url)
@@ -59,9 +56,29 @@ namespace CaseTool
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            string URL = "http://apis.io/api/search?q=" + queryValue.Text + "&limit=10&fields=name,description";
+            string URL = "http://apis.io/api/search?q=" + queryValue.Text + "&limit=100&fields=name,description";
 
-            queryResult.Text = (GetRequest(URL));
+            string JSONstring = (GetRequest(URL));
+            API p1 = JsonConvert.DeserializeObject<API>(JSONstring);
+
+            // CleanUp and convert to table.
+            dataGridView1.Rows.Clear();
+
+            dataGridView1.Columns.Add("name", "name");
+            dataGridView1.Columns.Add("description", "description");
+
+            foreach (Dictionary<string, string> a in p1.data)
+            {
+
+                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = a["name"];
+                row.Cells[1].Value = a["description"];
+
+                this.dataGridView1.Rows.Add(row);
+            }
+
+            dataGridView1.AutoResizeColumns();
+
         }
     }
 }

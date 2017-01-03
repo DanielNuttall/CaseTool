@@ -109,5 +109,10 @@ namespace CaseTool
                 childForm.Close();
             }
         }
+
+        private void classMakerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

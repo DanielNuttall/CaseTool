@@ -15,6 +15,9 @@ namespace CaseTool
         public Project()
         {
             InitializeComponent();
+
+
+
         }
 
         // Start Drag and Drop
@@ -59,6 +62,7 @@ namespace CaseTool
             GroupBox a = (GroupBox)sender;
             a.Parent = ProjectArea;
             a.Show();
+            a.Draggable(true);
         }
 
         private void existComp(int x, int y)
@@ -71,10 +75,11 @@ namespace CaseTool
         private void existComp_buttonClicked(object sender, EventArgs e)
         {
             GroupBox a = (GroupBox)sender;
+
             a.Parent = ProjectArea;
             a.Show();
+            a.Draggable(true);
+
         }
-
-
     }
 }
